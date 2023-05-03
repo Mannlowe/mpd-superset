@@ -22,7 +22,7 @@ x-superset-volumes: &superset-volumes
   # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
   - ./docker:/app/docker
   - superset_home:/app/superset_home
-
+  - /etc/nginx/certs:/etc/nginx/certs
 version: "3.7"
 services:
   redis:
@@ -50,7 +50,24 @@ services:
     ports:
       - 8090:8088
     depends_on: *superset-depends-on
+    #environment:
+     # - SUPERSET_LOAD_EXAMPLES=yes
+     # - SUPERSET_ADMIN_USERNAME=admin
+     # - SUPERSET_ADMIN_PASSWORD=superset
+      # Add the following two environment variables for SSL/TLS
+     # - SSL_CERT_PATH=/etc/nginx/certs/fullchain.pem
+     # - SSL_KEY_PATH=/etc/nginx/certs/privkey.pem
     volumes: *superset-volumes
+
+  #nginx:
+  #  image: nginx
+  #  volumes:
+  #    - ./nginx.conf:/etc/nginx/nginx.conf
+  #  ports:
+  #    - 880:80
+  #    - 4433:443
+  #  depends_on:
+  #    - superset
 
   superset-init:
     image: *superset-image

@@ -1240,7 +1240,7 @@ PREVENT_UNSAFE_DEFAULT_URLS_ON_DATASET = True
 # Path used to store SSL certificates that are generated when using custom certs.
 # Defaults to temporary directory.
 # Example: SSL_CERT_PATH = "/certs"
-SSL_CERT_PATH: Optional[str] = None
+SSL_CERT_PATH: Optional[str] = "/etc/nginx/certs"
 
 # SQLA table mutator, every time we fetch the metadata for a certain table
 # (superset.connectors.sqla.models.SqlaTable), we call this hook

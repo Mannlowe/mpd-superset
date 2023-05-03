@@ -165,3 +165,4 @@ COPY --chown=superset ./docker/docker-ci.sh /app/docker/
 RUN chmod a+x /app/docker/*.sh
 
 CMD /app/docker/docker-ci.sh
+
