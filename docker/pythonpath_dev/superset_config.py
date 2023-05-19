@@ -111,8 +111,10 @@ SQLLAB_CTAS_NO_LIMIT = True
 ENABLE_PROXY_FIX = True
 HTTP_PROXY_HEADER = 'X-Forwarded-Proto'
 PREFERRED_URL_SCHEME = 'https'
-SSL_CERTIFICATE = '/etc/nginx/certs/fullchain.pem'
-SSL_PRIVATE_KEY = '/etc/nginx/certs/privkey.pem'
+HTTP_HEADERS = {"X-Forwarded-Proto": "https"}
+ENABLE_SSL = True
+SUPERSET_WEBSERVER_SSL_CERT = get_env_variable("SUPERSET_SSL_CERT")
+SUPERSET_WEBSERVER_SSL_KEY = get_env_variable("SUPERSET_SSL_KEY")
 #
 # Optionally import superset_config_docker.py (which will have been included on
 # the PYTHONPATH) in order to allow for local settings to be overridden
