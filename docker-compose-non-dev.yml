@@ -47,8 +47,8 @@ services:
     command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
     user: "root"
     restart: unless-stopped
-    ports:
-      - 8090:8088
+    #ports:
+    #  - 8090:8088
     depends_on: *superset-depends-on
     volumes: *superset-volumes
 

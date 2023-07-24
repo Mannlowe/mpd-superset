@@ -129,3 +129,4 @@ try:
 except ImportError:
     logger.info("Using default Docker config...")
 
+ENABLE_TEMPLATE_PROCESSING : True
